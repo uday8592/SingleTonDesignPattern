@@ -5,6 +5,7 @@ import com.weather.detaiils.model.FeatureFlag;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class FeatureFlagService {
     private final FeatureFlagRepository repository;
     private final Supplier<Map<String, FeatureFlag>> remoteFetcher; // injected for testability
 
+    @Autowired
     public FeatureFlagService(FeatureFlagRepository repository) {
         this(repository, null);
     }
